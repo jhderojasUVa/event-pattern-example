@@ -1,11 +1,18 @@
 <script setup>
 import ButtonAdd from '../../atoms/Buttom/Buttom.atom.vue';
 import InputText from '../../atoms/Input/Input.atom.vue';
+
+const dataForInput = {
+    placeholder: 'Add a new todo'
+}
+const dataForButton = {
+    text: 'Addme, please'
+}
 </script>
 
 <template>
     <div class="grey">
-        <InputText /><ButtonAdd />
+        <InputText :data="dataForInput" /><ButtonAdd :data="dataForButton"/>
     </div>
 </template>
 

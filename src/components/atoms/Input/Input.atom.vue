@@ -1,9 +1,13 @@
 <script setup>
+const props = defineProps(['data']);
+
+const { placeholder } = props.data;
+
 </script>
 
 <template>
     <span class="container">
-        <input type="text" width="100" />
+        <input type="text" :placeholder="placeholder" width="100" />
     </span>
 </template>
 
