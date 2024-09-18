@@ -30,7 +30,7 @@ function handleComplete(id) {
 }
 
 function handleAddNewTodo(data) {
-  console.log(`> Received from AddTodoForm a new todo with title: ${data}`);
+  console.log('> Received from AddTodoForm a new todo with title:', data);
   const { title } = data;
   storeTodos.addToDo({
     title,
