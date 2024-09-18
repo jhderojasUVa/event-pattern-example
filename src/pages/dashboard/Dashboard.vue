@@ -1,10 +1,13 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, watch } from 'vue';
 import { storeToRefs } from 'pinia';
+// Molecules
 import GroupOfToDoMolecule from '../../components/molecules/GroupOfToDo/GroupOfToDo.molecule.vue';
+import AddTodoForm from '../../components/molecules/AddForm/AddForm.molecule.vue';
+// Stores
 import { useToDoStore } from '../../stores/todoStore';
 
-import { useCounterStore } from '../../stores/countStore';
+
 // Controller actions
 // import { getTodos, changeComplete, removeTodo } from './Controller';
 
@@ -34,10 +37,10 @@ watch(() => todos, (newValue) => {
 </script>
 
 <template>
-  <h1>Menu</h1>
-  <hr>
   <div>
     <h1>Todo example</h1>
+    <h2>Add a new Todo with this</h2>
+    <AddTodoForm />
     <h2>This shows all the TODOs</h2>
     <GroupOfToDoMolecule :todos="todos" @remove="handleRemove" @complete="handleComplete"/>
   </div>

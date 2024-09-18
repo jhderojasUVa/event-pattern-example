@@ -21,13 +21,19 @@ watch(() => data, () => {
 </script>
 
 <template>
-    <div>
-        {{ data.completed ? `COMPLETED: ` : ``}} {{ data.title }} [<a @click="$emit('remove', data.id)">remove me</a>] - [<a @click="$emit('completeme', data.id)">change complete</a>]
+    <div v-if="data.completed">
+        <span>{{ data.title }} [<a @click="$emit('remove', data.id)">remove me</a>] - [<a @click="$emit('completeme', data.id)">change complete</a>]</span>
+    </div>
+    <div v-if="!data.completed">
+        <span class="completed">{{ data.title }} [<a @click="$emit('remove', data.id)">remove me</a>] - [<a @click="$emit('completeme', data.id)">change complete</a>]</span>
     </div>
 </template>
 
 <style>
 a:hover {
     cursor: pointer;
+}
+.completed {
+    text-decoration: line-through;
 }
 </style>
