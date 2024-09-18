@@ -16,7 +16,7 @@ function handleClick() {
 
 watch(() => data, () => {
     console.log('> ToDo Atom is getting new data from the molecule GroupOfToDoMolecule')
-});
+}, { deep: true});
 
 </script>
 
