@@ -2,9 +2,8 @@
 const props = defineProps(['data']);
 
 const { text } = props.data;
-console.log(props)
 </script>
 
 <template>
-    <button :click="addTodo">{{ text }}</button>
+    <button :click="addTodo" @click="$emit('add', true)">{{ text }}</button>
 </template>

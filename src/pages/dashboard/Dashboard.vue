@@ -29,6 +29,15 @@ function handleComplete(id) {
   storeTodos.changeComplete(id);
 }
 
+function handleAddNewTodo(data) {
+  console.log(`> Received from AddTodoForm a new todo with title: ${data}`);
+  const { title } = data;
+  storeTodos.addToDo({
+    title,
+    completed: false,
+  })
+}
+
 watch(() => todos, (newValue) => {
   console.log('Dashboard has seen a change on the store... so let\'s react');
   todos.value = storeTodos.getTodos;
@@ -40,7 +49,7 @@ watch(() => todos, (newValue) => {
   <div>
     <h1>Todo example</h1>
     <h2>Add a new Todo with this</h2>
-    <AddTodoForm />
+    <AddTodoForm @newTodo="handleAddNewTodo"/>
     <h2>This shows all the TODOs</h2>
     <GroupOfToDoMolecule :todos="todos" @remove="handleRemove" @complete="handleComplete"/>
   </div>

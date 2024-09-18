@@ -40,10 +40,10 @@ export const useToDoStore = defineStore('todos', {
             return true;
         },
         addToDo(data) {
-            const { userId, id, title, completed} = data;
+            const { title, completed} = data;
             this.todos.push({
-                userId,
-                id,
+                userId: 1,
+                id: this.todos[this.todos.length - 1].id + 1,
                 title,
                 completed
             });

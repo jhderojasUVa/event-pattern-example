@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps(['data']);
+const emit = defineEmits(['text']);
 
 const { placeholder } = props.data;
 
@@ -7,7 +8,7 @@ const { placeholder } = props.data;
 
 <template>
     <span class="container">
-        <input type="text" :placeholder="placeholder" width="100" />
+        <input type="text" @input="event => emit('text', event.target.value)"  :placeholder="placeholder" width="100" />
     </span>
 </template>
 
