@@ -24,7 +24,7 @@ export const useToDoStore = defineStore('todos', {
     },
     actions: {
         async addAllTodoFromService() {
-            console.log(getToDos())
+            console.log(`> Storage: getting all ToDos from service...`);
             const { success, data } = await getToDos(); 
 
             if (success) {
@@ -51,7 +51,7 @@ export const useToDoStore = defineStore('todos', {
             return true;
         },
         removeToDo(id) {
-            // this.todos.splice(id - 1, 1);
+            console.log(`> Storage: removeToDo ${id}`);
             this.todos = this.todos.filter((element) => {
                 return element.id != id;
             })
@@ -62,6 +62,7 @@ export const useToDoStore = defineStore('todos', {
             console.log('spomething')
         },
         changeComplete(id) {
+            console.log(`> Storage: changeComplete ${id}`);
             this.getTodoByID(id).completed = this.getTodoByID(id).completed ? false : true;
             
             return true;

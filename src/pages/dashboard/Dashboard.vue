@@ -13,23 +13,22 @@ const storeTodos = useToDoStore();
 const { todos } = storeToRefs(storeTodos);
 const { removeToDo, changeComplete } = storeTodos;
 
-// console.log(process.env.VUE_APP_MOCK)
-console.log('mock', import.meta.env.MODE, import.meta.env)
-
 onMounted(() => {
   storeTodos.addAllTodoFromService();
 })
 
-// function handleRemove(id) {
-//   storeTodos.removeToDo(id);
-// }
+function handleRemove(id) {
+  console.log(`> Received from GroupOfToDoMolecule remove with id: ${id}`);
+  storeTodos.removeToDo(id);
+}
 
-// function handleComplete(id) {
-//   storeTodos.changeComplete(id);
-// }
+function handleComplete(id) {
+  console.log(`> Received from GroupOfToDoMolecule complete with id: ${id}`);
+  storeTodos.changeComplete(id);
+}
 
 watch(() => todos, (newValue) => {
-  console.log('Dashboard has seen a change on the store');
+  console.log('Dashboard has seen a change on the store... so let\'s react');
   todos.value = storeTodos.getTodos;
 }, { deep: true});
 
@@ -41,7 +40,7 @@ watch(() => todos, (newValue) => {
   <div>
     <h1>Todo example</h1>
     <h2>This shows all the TODOs</h2>
-    <GroupOfToDoMolecule :todos="todos" @remove="removeToDo" @complete="changeComplete"/>
+    <GroupOfToDoMolecule :todos="todos" @remove="handleRemove" @complete="handleComplete"/>
   </div>
 </template>
 
