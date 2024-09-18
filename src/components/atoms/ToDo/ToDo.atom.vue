@@ -1,8 +1,8 @@
 <script setup>
+import { ref, watch } from 'vue';
 
 const props = defineProps(['data']);
-
-const { id, title, completed } = props.data;
+const data = ref(props.data);
 
 /*
 We can do the event like this too
@@ -14,11 +14,15 @@ function handleClick() {
 }
 */
 
+watch(() => data, () => {
+    console.log('> ToDo Atom is getting new data from the molecule GroupOfToDoMolecule')
+});
+
 </script>
 
 <template>
     <div>
-        {{ completed ? `COMPLETED: ` : ``}} {{ title }} [<a @click="$emit('remove', id)">remove me</a>] - [<a @click="$emit('completeme', id)">change complete</a>]
+        {{ data.completed ? `COMPLETED: ` : ``}} {{ data.title }} [<a @click="$emit('remove', data.id)">remove me</a>] - [<a @click="$emit('completeme', data.id)">change complete</a>]
     </div>
 </template>
 

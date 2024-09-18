@@ -11,7 +11,6 @@ import { useCounterStore } from '../../stores/countStore';
 const storeTodos = useToDoStore();
 
 const { todos } = storeToRefs(storeTodos);
-const { removeToDo, changeComplete } = storeTodos;
 
 onMounted(() => {
   storeTodos.addAllTodoFromService();
