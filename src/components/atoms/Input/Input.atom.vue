@@ -7,16 +7,9 @@ const { placeholder } = props.data;
 </script>
 
 <template>
-    <span class="container">
-        <input type="text" @input="event => emit('text', event.target.value)"  :placeholder="placeholder" width="100" />
-    </span>
+    <v-text-field max-width="300" :label="placeholder" type="text" @input="event => emit('text', event.target.value)"
+        :placeholder="placeholder" width="100"></v-text-field>
 </template>
 
 <style>
-.container {
-    padding: 0 1.5em;
-}
-input {
-    padding: 0.5em
-}
 </style>

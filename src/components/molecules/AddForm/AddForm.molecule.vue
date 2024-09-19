@@ -28,9 +28,11 @@ const addMe = () => {
 </script>
 
 <template>
-    <div class="grey">
-        <InputText :data="dataForInput" @text="getText"/><ButtonAdd :data="dataForButton" @add="addMe"/>
-    </div>
+    <!-- again, use the vuetify as an atoms -->
+    <v-card class="mx-auto" max-width="700" title="Add a new todo">
+        <InputText :data="dataForInput" @text="getText" />
+        <ButtonAdd :data="dataForButton" @add="addMe" />
+    </v-card>
 </template>
 
 <style>
