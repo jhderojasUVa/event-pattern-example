@@ -41,18 +41,22 @@ function handleAddNewTodo(data) {
 watch(() => todos, (newValue) => {
   console.log('Dashboard has seen a change on the store... so let\'s react');
   todos.value = storeTodos.getTodos;
-}, { deep: true});
+}, { deep: true });
 
 </script>
 
 <template>
-  <div>
-    <h1>Todo example</h1>
-    <h2>Add a new Todo with this</h2>
-    <AddTodoForm @newTodo="handleAddNewTodo"/>
-    <h2>This shows all the TODOs</h2>
-    <GroupOfToDoMolecule :todos="todos" @remove="handleRemove" @complete="handleComplete"/>
-  </div>
+  <v-app>
+    <v-main>
+      <div>
+        <h1>Todo example</h1>
+        <h2>Add a new Todo with this</h2>
+        <AddTodoForm @newTodo="handleAddNewTodo" />
+        <h2>This shows all the TODOs</h2>
+        <GroupOfToDoMolecule :todos="todos" @remove="handleRemove" @complete="handleComplete" />
+      </div>
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
