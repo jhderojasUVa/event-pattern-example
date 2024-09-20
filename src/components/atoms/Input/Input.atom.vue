@@ -7,9 +7,18 @@ const { placeholder } = props.data;
 </script>
 
 <template>
-    <v-text-field max-width="300" :label="placeholder" type="text" @input="event => emit('text', event.target.value)"
-        :placeholder="placeholder" width="100"></v-text-field>
+    <div class="input">
+        <v-text-field class="input-field" variant="outlined" :label="placeholder" type="text"
+            @input="event => emit('text', event.target.value)" :placeholder="placeholder"></v-text-field>
+    </div>
 </template>
 
 <style>
+div.input {
+    margin: auto;
+}
+input[type="text"] {
+    font-size: 2em;
+    background-color: white;
+}
 </style>

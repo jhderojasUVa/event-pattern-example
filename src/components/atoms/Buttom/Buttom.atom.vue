@@ -7,5 +7,8 @@ const { text } = props.data;
 
 <template>
     <!-- We can use Vuetify as a atoms -->
-    <v-btn max-with="100" :click="addTodo" @click="$emit('add', true)">{{ text }}</v-btn>
+    <v-btn max-with="100" :click="addTodo" @click="$emit('add', true)" variant="outlined">{{ text }}</v-btn>
 </template>
+
+<style>
+</style>

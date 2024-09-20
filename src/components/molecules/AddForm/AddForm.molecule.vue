@@ -29,7 +29,7 @@ const addMe = () => {
 
 <template>
     <!-- again, use the vuetify as an atoms -->
-    <v-card class="mx-auto" max-width="700" title="Add a new todo">
+    <v-card class="mx-auto grey" max-width="700" title="Add a new todo">
         <InputText :data="dataForInput" @text="getText" />
         <ButtonAdd :data="dataForButton" @add="addMe" />
     </v-card>
@@ -37,7 +37,7 @@ const addMe = () => {
 
 <style>
 .grey {
-    background-color: rgba(100, 100, 100, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 0.5em;
     border-radius: 4px;
 }
