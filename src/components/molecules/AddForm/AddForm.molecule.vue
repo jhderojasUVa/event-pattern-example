@@ -6,7 +6,8 @@ import InputText from '../../atoms/Input/Input.atom.vue';
 let textOnInput = '';
 
 const dataForInput = {
-    placeholder: 'Add a new todo'
+    placeholder: 'Write here to add something',
+    title: 'Add a todo'
 }
 const dataForButton = {
     text: 'Addme, please'

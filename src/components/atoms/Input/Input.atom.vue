@@ -2,13 +2,13 @@
 const props = defineProps(['data']);
 const emit = defineEmits(['text']);
 
-const { placeholder } = props.data;
+const { placeholder, title } = props.data;
 
 </script>
 
 <template>
     <div class="input">
-        <v-text-field class="input-field" variant="outlined" :label="placeholder" type="text"
+        <v-text-field class="input-field" variant="outlined" :label="title" type="text"
             @input="event => emit('text', event.target.value)" :placeholder="placeholder"></v-text-field>
     </div>
 </template>
