@@ -1,10 +1,3 @@
-import { ref } from 'vue';
-import { useToDoStore } from '../../stores/todoStore';
-
-const storeToDo = useToDoStore();
-
-const store = ref(storeToDo)
-
 // controller code
 const checkIdIsValid = (id) => {
     if (!id) {
@@ -14,14 +7,14 @@ const checkIdIsValid = (id) => {
     return true;
 }
 
-export const getTodos = () => {
+export const getTodos = (store) => {
     return store.getTodos();
 }
 
 // we set some defaults
 export const addToDo = (store, { userId = 1, id = null, title = null, completed = false  } = {}) => {
     // check some basic values
-    if (id === null|| title === null) {
+    if (userId === null || title === null) {
         // something is bad
         return {
             sucess: false,
@@ -29,7 +22,7 @@ export const addToDo = (store, { userId = 1, id = null, title = null, completed 
         }
     }
 
-    const response = store.addToDo(store, { userId, id, title, completed});
+    const response = store.addToDo({ userId, id, title, completed});
 
     if (response) {
         return {
@@ -50,7 +43,7 @@ export const changeComplete = (store, id) => {
 
     if (response) {
         return {
-            success: true
+            success: true,
         }
     }
 
@@ -60,7 +53,7 @@ export const changeComplete = (store, id) => {
     }
 }
 
-export const removeTodo = (id) => {
+export const removeTodo = (store, id) => {
     if (!checkIdIsValid(id)) {
         return {
             sucess: false,
